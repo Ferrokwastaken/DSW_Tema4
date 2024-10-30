@@ -1,3 +1,6 @@
+<?php 
+  require_once 'connection.php'; 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +12,9 @@
   <h1>Modificar Producto</h1>
   <?php
     if (!empty($_GET['id']) && !empty($_GET['name']) && !empty($_GET['price'])) {
+      $results = $link->query('SELECT * FROM products WHERE id = ' . $_GET['id']);
+      $product = $results->fetch_object();
+      if ($product) {
   ?>
   <form action="update.php?id=<?=$_GET['id']?>" method="post">
     <input type="hidden" name="id" value="<?=$_GET['id']?>">
@@ -23,6 +29,7 @@
   </p>
   </form>
   <?php
+      }
     }
   ?>
   <p>
