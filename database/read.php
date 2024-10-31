@@ -12,6 +12,10 @@
       border: 1px solid black;
       padding: 4px 10px;
     }
+
+    table {
+      border-collapse: collapse;
+    }
   </style>
 </head>
 <body>
